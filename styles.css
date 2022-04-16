@@ -32,14 +32,14 @@ body {
     background: rgb(170, 183, 187);
     opacity: 0;
     border-radius: 20px;
-
 }
 
 
 h1 {
     margin-top: 0;
     padding: 1rem;
-    max-height: inherit
+    max-height: inherit;
+    margin-right: 4rem;
 }
 
 main.groups {
@@ -69,14 +69,13 @@ main {
 }
 
 
-
 header {
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(192, 190, 190);
     height: 5rem;
     position: fixed;
     width: 100%;
     z-index: 1;
-    background-color: #e8eaeb;
+    background-color: #dcdee0;
     margin-left: 4rem;
     transition: 300ms ease;
 }
@@ -171,17 +170,16 @@ i.fa-solid{
 
 .side_nav_bar:hover .chair_logo i {
     transform: rotate(90deg);
-    transition: 700ms;
+    transition: 1s;
     margin-left: 0.7rem;
     filter: brightness(150%);
 }
 
 .chair_logo i {
-    transition: 0.5s;
+    transition: 1s;
 }
 
 .card-body {
-  /* white-space: nowrap; */
   overflow: hidden;
   -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
 
@@ -212,8 +210,7 @@ i.fa-solid{
 
 section {
     overflow: hidden;
-    margin: 0rem 12.5rem 1rem 12.5rem;
-    /* -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent); */
+    margin: 0rem 4.6rem 2rem 4.6rem;
 }
 
 section:hover {
@@ -224,4 +221,184 @@ section:hover {
 h2 {
     margin: 7rem 5rem 1rem 5rem;
     text-align: center;
+    text-decoration: underline;
+}
+
+.card-img-top {
+    height: 10rem;
+    
+}
+
+.card.space_out {
+    width: 15.2rem; 
+    height: 26rem;
+}
+
+@media screen and (max-width:380px){
+    div.card.space_out { 
+        width: 13.93rem;
+        height: 18rem;
+    }
+
+    .card-img-top{
+        margin-top: 0.5rem;
+        height: 8rem;
+        width: 8rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .space_out{
+        padding: 0;
+        margin: 0px 5px 0 5px;
+    }
+
+    header {
+        display: none;
+    }
+
+    section {
+        margin: 0;
+    }
+
+
+    main.groups {
+        margin: 0;
+        padding: 0;
+    }
+    
+    h2 {
+      margin: 1rem;  
+    }
+
+    section {
+        margin-bottom: 6rem;
+    }
+
+    .side_nav_bar {
+        bottom: 0;
+        width: 100vw;
+        height: 4.5rem;
+        z-index: 2;
+        ;
+    }
+
+    .chair_logo {
+        display: none;
+    }
+
+    .navbar_nav {
+        flex-direction: row;
+    }
+
+    .nav_link {
+        justify-content: center;
+    }
+
+}
+
+@media screen and (min-width:381px) and (max-width:729px){
+    div.card.space_out { 
+        width: 14.93rem;
+        height: 20rem;
+    }
+
+    .card-img-top{
+        margin-top: 0.5rem;
+        height: 7rem;
+        width: 9rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .space_out{
+        padding: 0;
+        margin: 0px 5px 0 5px;
+    }
+
+    header {
+        display: none;
+    }
+
+    section {
+        margin: 0;
+    }
+
+    .side_nav_bar {
+        bottom: 0;
+        width: 100vw;
+        height: 4.5rem;
+        z-index: 2;
+        ;
+    }
+
+    .chair_logo {
+        display: none;
+    }
+
+    .navbar_nav {
+        flex-direction: row;
+    }
+
+    .nav_link {
+        justify-content: center;
+    }
+
+    main.groups {
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        margin: 0;
+    }
+    
+    h2 {
+      margin: 1rem;  
+    }
+
+    section {
+        margin-bottom: 6rem;
+    }
+
+
+}
+@media screen and (min-width:729px) and (max-width:768px) {
+    
+     div.card.space_out { 
+        width: 17.2rem;
+        height: 27rem;
+    }
+
+    .card-img-top{
+        margin-top: 1rem;
+        height: 11rem;
+        width: 16.3rem;
+    
+    }
+
+    section {
+        margin-right: 3rem;
+        margin-left: 3rem;
+    } 
+}
+@media screen and (min-width:769px) and (max-width:1024px) {
+
+     div.card.space_out { 
+        width: 19.2rem;
+        height: 33rem;
+    }
+
+    .card-img-top{
+        margin-top: 1rem;
+        height: 12rem;
+        width: 14.3rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    section {
+        margin-right: 3rem;
+        margin-left: 3rem;
+    } 
 }
