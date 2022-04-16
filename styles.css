@@ -1,75 +1,239 @@
 :root {
-    font-size: 24px;
-    font-family: 'Open Sans'; 
-    height: 100vh;
-    
+  font-size: 24px;
+  font-family: "Open Sans";
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: black;
 }
 
-body {
-    color: black;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: overlay;
-}
-
+/* Area the bar lives in */
 ::-webkit-scrollbar {
-    width: 0.45rem;
-    height: 0.45rem;
+  width: 0.45rem;
+  height: 0.45rem;
 }
 
-.para::-webkit-scrollbar {
-    width: 0.25rem;
-    height: 0.25rem;
+/* The bar */
+::-webkit-scrollbar-thumb {
+  background: rgb(170, 183, 187);
+  border-radius: 20px;
 }
 
-::-webkit-scrollbar-track { /* The bar scroll limits */
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb { /* The bar */
-    background: rgb(170, 183, 187);
-    opacity: 0;
-    border-radius: 20px;
-}
-
-
-h1 {
-    margin-top: 0;
-    padding: 1rem;
-    max-height: inherit;
-    margin-right: 4rem;
-}
-
-main.groups {
-    height: 100vh;
-    margin-left: 4rem;
-    padding: 0 1rem 0 1rem;
-    /* background-image: url("chair_background.jpg");
-    background-repeat: repeat;
-    background-color: #e8eaeb; */
-    background-image: none;
-    color: #0a0a0a;
-    transition: 300ms ease; /* Timed main and nav bar transision together to look more seamless */
-    overflow-y: scroll;
+h2 {
+  text-align: center;
+  text-decoration: underline;
 }
 
 main {
-    height: 100vh;
-    margin-left: 4rem;
-    padding: 0 1rem 0 1rem;
-    background-image: url("chair.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #e8eaeb;
-    color: #0a0a0a;
-    transition: 300ms ease; /* Timed main and nav bar transision together to look more seamless */
-    overflow-y: scroll;
+  height: 100vh;
+  background-image: url("chair.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #e8eaeb;
+  overflow-y: scroll;
+
+  /* Matches the width of the .size_nav_bar */
+  margin-left: 4rem;
+  /* Matches speed .side_nav_bar has */
+  transition: 300ms ease;
 }
 
+main.groups {
+  background-image: none;
+}
 
-header {
+.navbar_nav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav_link {
+  display: flex;
+  align-items: center; /* Centers vertically in a row, horizontally in a column */
+  color: #e7e7e7;
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.8); /* Force icons to be gray until hovered over */
+  transition: 600ms;
+}
+
+.nav_link.active {
+  filter: grayscale(0) opacity(1);
+}
+
+/* Display changes only handled in screen sizes wider than 729px */
+.link_text {
+  display: none;
+}
+
+i.fa-solid {
+  color: rgb(0, 217, 255);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-img-top {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-body {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+}
+
+.card-body:hover {
+  overflow-y: scroll;
+  -webkit-mask-image: none;
+}
+
+.card:hover {
+  background-color: rgb(213, 242, 247);
+  border: 1px solid rgb(58, 160, 255);
+}
+
+.box {
+  display: flex;
+  width: fit-content;
+}
+
+.side_nav_bar {
+  position: fixed;
+  background-color: rgb(60, 81, 90);
+
+  /* Matches speed main has */
+  transition: 300ms ease; /* STAYS MAIN CSS */
+}
+
+.nav_link:hover {
+  filter: grayscale(0%) opacity(1);
+}
+
+section {
+  overflow: hidden;
+}
+
+section:hover {
+  overflow-x: scroll;
+}
+
+/* Might be useless and can delegate this to other classes */
+.space_out {
+  padding: 10px 10px 0 10px;
+  margin: 5px 5px 5px 5px;
+}
+
+@media screen and (max-width: 380px) {
+  div.card.space_out {
+    width: 13.93rem;
+    height: 19rem;
+  }
+}
+
+@media screen and (min-width: 381px) and (max-width: 728px) {
+  div.card.space_out {
+    width: 14.93rem;
+    height: 22rem;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  section::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+  section {
+    overflow-x: scroll;
+  }
+
+  .card-img-top {
+    margin-top: 0.5rem;
+    height: 7rem;
+    width: 8rem;
+  }
+  .nav_list_item {
+    width: 100%;
+  }
+
+  header {
+    display: none;
+  }
+
+  section.bottom {
+    margin-bottom: 4rem;
+  }
+
+  .side_nav_bar {
+    bottom: 0;
+    width: 100vw;
+    height: 3rem;
+    z-index: 2;
+  }
+
+  .chairforce_logo {
+    display: none;
+  }
+
+  .navbar_nav {
+    flex-direction: row;
+  }
+
+  .nav_link {
+    height: 2.9rem;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  h2 {
+    margin: 1rem;
+  }
+}
+
+/* Screens that are at least 729px and bigger, will recieve the hover psuedo code */
+@media screen and (min-width: 729px) {
+  section {
+    margin-right: 5.5rem;
+    margin-left: 5.5rem;
+  }
+
+  section.bottom {
+    margin-bottom: 2rem;
+  }
+
+  .navbar_nav {
+    flex-direction: column;
+  }
+
+  i.fa-solid {
+    margin-left: 1.3rem;
+    margin-right: auto;
+  }
+
+  .link_text {
+    display: none;
+    margin-left: 1rem;
+    transition: 300ms ease;
+  }
+
+  h2 {
+    margin: 6rem 5rem 1rem 5rem;
+  }
+
+  .card-img-top {
+    width: 14rem;
+    height: 12.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card {
+    width: 15.2rem;
+    height: 26rem;
+  }
+
+  header {
     border-bottom: 1px solid rgb(192, 190, 190);
     height: 5rem;
     position: fixed;
@@ -78,85 +242,18 @@ header {
     background-color: #dcdee0;
     margin-left: 4rem;
     transition: 300ms ease;
-}
+  }
 
-.side_nav_bar {
-    width: 4rem; /* matches the space I left in the main */
-    height: 100vh; /* relative to the size of the viewport */
-    position: fixed;
-    background-color: rgb(60, 81, 90);
-    transition: 300ms ease;
-}
+  h1 {
+    padding: 1rem;
+  }
 
-.navbar_nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.nav_list_item {
-    width: 100%;
-}
-
-.nav_link {
-    display: flex;
-    align-items: center;
-    height: 5rem;
-    color: #e7e7e7;
-    text-decoration: none;
-    filter: grayscale(100%) opacity(0.8); /* Force icons to be gray until hovered over */
-    transition: 600ms;
-}
-
-.nav_link:hover {
-    filter: grayscale(0%) opacity(1);
-    background-color: #141418;
-    color: #e7e7e7;
-}
-
-.link_text {
-    display: none;
-    margin-left: 1rem;
-    transition: 300ms ease;
-}
-
-.side_nav_bar:hover {
-    width: 12rem;
-}
-
-.side_nav_bar:hover i {
-    margin-left: 1.3rem;
-    margin-right: 0;
-}
-
-.side_nav_bar:hover+header {
-    margin-left: 12rem;
-}
-
-i.fa-solid{
-    margin-left: 1.3rem;
-    margin-right: auto;
-}
-.chairforce_logo {
+  .chairforce_icon {
     margin-left: auto;
     margin-right: auto;
-}
+  }
 
-.side_nav_bar:hover~main {
-    margin-left: 12rem;
-}
-
-.side_nav_bar:hover .link_text {
-    display: inline-block;
-}
-
-.fa-solid {
-    color: rgb(0, 217, 255);
-}
-
-.chair_logo {
+  .chairforce_logo {
     font-weight: bold;
     margin-bottom: 1rem;
     text-align: center;
@@ -165,240 +262,102 @@ i.fa-solid{
     background-color: #141418;
     width: 100%;
     letter-spacing: 0.3ch;
-    
-}
+  }
 
-.side_nav_bar:hover .chair_logo i {
+  .chairforce_logo i {
+    transition: 1s;
+  }
+
+  .nav_link {
+    height: 5rem;
+  }
+
+  .nav_link:hover {
+    background-color: #141418;
+    color: #e7e7e7;
+  }
+
+  .side_nav_bar {
+    height: 100vh;
+    /* Matches the margin-left spacing in main */
+    width: 4rem;
+  }
+
+  .side_nav_bar:hover {
+    width: 12rem;
+  }
+
+  .side_nav_bar:hover i {
+    margin-left: 1.3rem;
+    margin-right: 0;
+  }
+
+  .side_nav_bar:hover + header {
+    margin-left: 12rem;
+  }
+
+  .side_nav_bar:hover ~ main {
+    margin-left: 12rem;
+  }
+
+  .side_nav_bar:hover .link_text {
+    display: inline-block;
+  }
+
+  .side_nav_bar:hover .chairforce_logo i {
     transform: rotate(90deg);
     transition: 1s;
     margin-left: 0.7rem;
     filter: brightness(150%);
+  }
 }
 
-.chair_logo i {
-    transition: 1s;
-}
+@media screen and (min-width: 729px) and (max-width: 768px) {
+  section::-webkit-scrollbar-thumb {
+    display: none;
+  }
 
-.card-body {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+  div.card {
+    width: 21.2rem;
+    height: 30rem;
+  }
 
-}
+  .card-img-top {
+    margin-top: 1rem;
+    height: 13rem;
+    width: 14rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.card-body:hover {
-    overflow-y: scroll;
-    -webkit-mask-image: none;
-}
-
-.card:hover {
-    background-color: rgb(213, 242, 247);
-    border: 1px solid rgb(58, 160, 255);
-}
-
-
-/* In class lesson */
-
-.box {
-   display: flex;
-   width: fit-content;
-}
-
-.space_out {
-    padding: 10px 10px 0 10px;
-    margin: 5px 5px 5px 5px;
-}
-
-section {
-    overflow: hidden;
-    margin: 0rem 4.6rem 2rem 4.6rem;
-}
-
-section:hover {
+  section {
+    margin-right: 2rem;
+    margin-left: 2rem;
     overflow-x: scroll;
-    
+  }
 }
 
-h2 {
-    margin: 7rem 5rem 1rem 5rem;
-    text-align: center;
-    text-decoration: underline;
-}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  section::-webkit-scrollbar-thumb {
+    display: none;
+  }
 
-.card-img-top {
-    height: 10rem;
-    
-}
+  div.card.space_out {
+    width: 19.2rem;
+    height: 36rem;
+  }
 
-.card.space_out {
-    width: 15.2rem; 
-    height: 26rem;
-}
+  .card-img-top {
+    margin-top: 1rem;
+    height: 13rem;
+    width: 14rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-@media screen and (max-width:380px){
-    div.card.space_out { 
-        width: 13.93rem;
-        height: 18rem;
-    }
-
-    .card-img-top{
-        margin-top: 0.5rem;
-        height: 8rem;
-        width: 8rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .space_out{
-        padding: 0;
-        margin: 0px 5px 0 5px;
-    }
-
-    header {
-        display: none;
-    }
-
-    section {
-        margin: 0;
-    }
-
-
-    main.groups {
-        margin: 0;
-        padding: 0;
-    }
-    
-    h2 {
-      margin: 1rem;  
-    }
-
-    section {
-        margin-bottom: 6rem;
-    }
-
-    .side_nav_bar {
-        bottom: 0;
-        width: 100vw;
-        height: 4.5rem;
-        z-index: 2;
-        ;
-    }
-
-    .chair_logo {
-        display: none;
-    }
-
-    .navbar_nav {
-        flex-direction: row;
-    }
-
-    .nav_link {
-        justify-content: center;
-    }
-
-}
-
-@media screen and (min-width:381px) and (max-width:729px){
-    div.card.space_out { 
-        width: 14.93rem;
-        height: 20rem;
-    }
-
-    .card-img-top{
-        margin-top: 0.5rem;
-        height: 7rem;
-        width: 9rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .space_out{
-        padding: 0;
-        margin: 0px 5px 0 5px;
-    }
-
-    header {
-        display: none;
-    }
-
-    section {
-        margin: 0;
-    }
-
-    .side_nav_bar {
-        bottom: 0;
-        width: 100vw;
-        height: 4.5rem;
-        z-index: 2;
-        ;
-    }
-
-    .chair_logo {
-        display: none;
-    }
-
-    .navbar_nav {
-        flex-direction: row;
-    }
-
-    .nav_link {
-        justify-content: center;
-    }
-
-    main.groups {
-        margin: 0;
-        padding: 0;
-    }
-
-    main {
-        margin: 0;
-    }
-    
-    h2 {
-      margin: 1rem;  
-    }
-
-    section {
-        margin-bottom: 6rem;
-    }
-
-
-}
-@media screen and (min-width:729px) and (max-width:768px) {
-    
-     div.card.space_out { 
-        width: 17.2rem;
-        height: 27rem;
-    }
-
-    .card-img-top{
-        margin-top: 1rem;
-        height: 11rem;
-        width: 16.3rem;
-    
-    }
-
-    section {
-        margin-right: 3rem;
-        margin-left: 3rem;
-    } 
-}
-@media screen and (min-width:769px) and (max-width:1024px) {
-
-     div.card.space_out { 
-        width: 19.2rem;
-        height: 33rem;
-    }
-
-    .card-img-top{
-        margin-top: 1rem;
-        height: 12rem;
-        width: 14.3rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    section {
-        margin-right: 3rem;
-        margin-left: 3rem;
-    } 
+  section {
+    margin-right: 4rem;
+    margin-left: 4rem;
+    overflow-x: scroll;
+  }
 }
