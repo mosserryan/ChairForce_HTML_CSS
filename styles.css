@@ -117,6 +117,23 @@ section:hover {
   overflow-x: scroll;
 }
 
+/* footer ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0; 
+}
+
+footer{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 10rem;
+  padding-top: 10rem;
+  background-color: #141418;
+} */
+
 /* Might be useless and can delegate this to other classes */
 .space_out {
   padding: 10px 10px 0 10px;
