@@ -66,30 +66,152 @@ main.groups {
   display: none;
 }
 
-i.fa-solid {
+.card {
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  /* border-radius: 7%; */
+}
+
+div.additional_layer .player_information {
+  margin-top: 2rem;
+}
+
+.status {
+  color: rgba(220, 220, 220, 0.694);
+  font-size: 0.5em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.237);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+}
+
+.center {
+  z-index: 2;
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.center.status {
+  top: 36%;
+  left: 50%;
+}
+
+.online {
+  color: #0de43c;
+}
+
+.away {
+  color: #e8df39b8;
+}
+
+.blue_icon {
   color: rgb(0, 217, 255);
   margin-left: auto;
   margin-right: auto;
 }
 
-.card-img-top {
+.white_icon {
+  color: rgb(255, 255, 255);
+  font-size: 1.4rem;
   margin-left: auto;
   margin-right: auto;
 }
 
-.card-body {
+.stat_title,
+.team_title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.team_name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.stat_count {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.info {
+  position: absolute;
+  bottom: 0rem;
+  right: 3.2rem;
+  font-size: 0.6em;
+  font-style: italic;
+}
+
+.card-img-top.groups {
+  z-index: 2;
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: 8rem;
+  height: 8rem;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background-color: rgb(220, 242, 248);
+  border: solid 2px rgb(142, 195, 217);
+}
+
+div.card.space_out {
+  padding: 0;
+  height: 25.5rem;
+  width: 17rem;
+  border: none;
+}
+
+.border_layer {
+  display: none;
+  border: solid 1px rgb(106, 204, 246);
+  position: absolute;
+  width: 100%;
+  align-self: center;
+  top: 40%;
+  z-index: 5;
+}
+
+.additional_layer {
+  height: 40%;
+  background-color: rgb(84, 196, 245);
+  z-index: 1;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.additional_layer div.card-body {
+  height: 0%;
+  background-color: rgb(84, 196, 245);
+  transition: height 0.6s;
+  color: rgb(254, 254, 254);
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
 }
 
-.card-body:hover {
-  overflow-y: scroll;
-  -webkit-mask-image: none;
+.card-body {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  padding: 0 1rem 0 1rem;
+  text-align: center;
 }
 
-.card:hover {
-  background-color: rgb(213, 242, 247);
-  border: 1px solid rgb(58, 160, 255);
+.card-body h3 {
+  margin-top: 0.5rem;
+  font-family: Abel, Arial, Verdana, sans-serif;
+}
+
+.card:hover .additional_layer div.card-body {
+  height: 60% !important;
+  border-radius: 0 0 0.25rem 0.25rem;
+  transition: height 0.6s;
+}
+
+.card:hover .border_layer {
+  display: block;
 }
 
 .box {
@@ -155,37 +277,26 @@ footer{
 }
 
 @media screen and (max-width: 728px) {
-  section::-webkit-scrollbar-thumb {
-    display: none;
+  /* Start Card */
+
+  div.additional_layer .player_information {
+    margin-top: 0rem;
   }
 
-  section {
-    overflow-x: scroll;
+  .stat_title {
+    font-size: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
-  .card-img-top {
-    margin-top: 0.5rem;
-    height: 7rem;
-    width: 8rem;
-  }
-  .nav_list_item {
-    width: 100%;
+  .center.status {
+    top: 37%;
+    left: 18%;
   }
 
-  header {
-    display: none;
-  }
+  /* End Card */
 
-  section.bottom {
-    margin-bottom: 4rem;
-  }
-
-  .side_nav_bar {
-    bottom: 0;
-    width: 100vw;
-    height: 3rem;
-    z-index: 2;
-  }
+  /* Start Navigation */
 
   .chairforce_logo {
     display: none;
@@ -197,6 +308,35 @@ footer{
 
   .nav_link {
     height: 2.9rem;
+  }
+
+  .nav_list_item {
+    width: 100%;
+  }
+
+  .side_nav_bar {
+    bottom: 0;
+    width: 100vw;
+    height: 3rem;
+    z-index: 2;
+  }
+
+  /* End Navigation */
+
+  section::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+  section {
+    overflow-x: scroll;
+  }
+
+  header {
+    display: none;
+  }
+
+  section.bottom {
+    margin-bottom: 4rem;
   }
 
   main {
@@ -219,11 +359,32 @@ footer{
     margin-bottom: 2rem;
   }
 
+  h2 {
+    margin: 6rem 5rem 1rem 5rem;
+  }
+
+  header {
+    border-bottom: 1px solid rgb(192, 190, 190);
+    height: 5rem;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    background-color: #dcdee0;
+    margin-left: 4rem;
+    transition: 300ms ease;
+  }
+
+  h1 {
+    padding: 1rem;
+  }
+
+  /* Start Navigation */
+
   .navbar_nav {
     flex-direction: column;
   }
 
-  i.fa-solid {
+  i.fa-solid.blue_icon {
     margin-left: 1.3rem;
     margin-right: auto;
   }
@@ -232,37 +393,6 @@ footer{
     display: none;
     margin-left: 1rem;
     transition: 300ms ease;
-  }
-
-  h2 {
-    margin: 6rem 5rem 1rem 5rem;
-  }
-
-  .card-img-top {
-    width: 14rem;
-    height: 12.5rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .card {
-    width: 15.2rem;
-    height: 26rem;
-  }
-
-  header {
-    border-bottom: 1px solid rgb(192, 190, 190);
-    height: 5rem;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    background-color: #dcdee0;
-    margin-left: 4rem;
-    transition: 300ms ease;
-  }
-
-  h1 {
-    padding: 1rem;
   }
 
   .chairforce_icon {
@@ -296,7 +426,6 @@ footer{
 
   .side_nav_bar {
     height: 100vh;
-    /* Matches the margin-left spacing in main */
     width: 4rem;
   }
 
@@ -328,23 +457,11 @@ footer{
     filter: brightness(150%);
   }
 }
+/* End Navigation */
 
 @media screen and (min-width: 729px) and (max-width: 768px) {
   section::-webkit-scrollbar-thumb {
     display: none;
-  }
-
-  div.card {
-    width: 21.2rem;
-    height: 30rem;
-  }
-
-  .card-img-top {
-    margin-top: 1rem;
-    height: 13rem;
-    width: 14rem;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   section {
@@ -361,15 +478,7 @@ footer{
 
   div.card.space_out {
     width: 19.2rem;
-    height: 36rem;
-  }
-
-  .card-img-top {
-    margin-top: 1rem;
-    height: 13rem;
-    width: 14rem;
-    margin-left: auto;
-    margin-right: auto;
+    height: 26rem;
   }
 
   section {
