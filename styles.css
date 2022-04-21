@@ -7,13 +7,11 @@
   color: black;
 }
 
-/* Area the bar lives in */
 ::-webkit-scrollbar {
   width: 0.45rem;
   height: 0.45rem;
 }
 
-/* The bar */
 ::-webkit-scrollbar-thumb {
   background: rgb(170, 183, 187);
   border-radius: 20px;
@@ -42,6 +40,25 @@ main.groups {
   background-image: none;
 }
 
+.box {
+  display: flex;
+  width: fit-content;
+}
+
+section {
+  overflow: hidden;
+}
+
+section:hover {
+  overflow-x: scroll;
+}
+
+.space_out {
+  padding: 10px 10px 0 10px;
+  margin: 5px 5px 5px 5px;
+}
+
+/* Start Navigation */
 .navbar_nav {
   list-style: none;
   padding: 0;
@@ -61,11 +78,31 @@ main.groups {
   filter: grayscale(0) opacity(1);
 }
 
-/* Display changes only handled in screen sizes wider than 729px */
+.side_nav_bar {
+  z-index: 10;
+  position: fixed;
+  background-color: rgb(60, 81, 90);
+
+  /* Matches speed main has */
+  transition: 300ms ease; /* STAYS MAIN CSS */
+}
+
+.nav_link:hover {
+  filter: grayscale(0%) opacity(1);
+}
+
 .link_text {
   display: none;
 }
 
+.blue_icon {
+  color: rgb(0, 217, 255);
+  margin-left: auto;
+  margin-right: auto;
+}
+/* End Navigation */
+
+/* Start Card */
 .card {
   box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
   /* border-radius: 7%; */
@@ -103,12 +140,6 @@ div.additional_layer .player_information {
 
 .away {
   color: #e8df39b8;
-}
-
-.blue_icon {
-  color: rgb(0, 217, 255);
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .white_icon {
@@ -166,6 +197,7 @@ div.card.space_out {
   border: none;
 }
 
+/* Card contents */
 .border_layer {
   display: none;
   border: solid 1px rgb(106, 204, 246);
@@ -213,31 +245,7 @@ div.card.space_out {
 .card:hover .border_layer {
   display: block;
 }
-
-.box {
-  display: flex;
-  width: fit-content;
-}
-
-.side_nav_bar {
-  position: fixed;
-  background-color: rgb(60, 81, 90);
-
-  /* Matches speed main has */
-  transition: 300ms ease; /* STAYS MAIN CSS */
-}
-
-.nav_link:hover {
-  filter: grayscale(0%) opacity(1);
-}
-
-section {
-  overflow: hidden;
-}
-
-section:hover {
-  overflow-x: scroll;
-}
+/* End Card */
 
 /* footer ul {
   display: flex;
@@ -255,12 +263,6 @@ footer{
   padding-top: 10rem;
   background-color: #141418;
 } */
-
-/* Might be useless and can delegate this to other classes */
-.space_out {
-  padding: 10px 10px 0 10px;
-  margin: 5px 5px 5px 5px;
-}
 
 @media screen and (max-width: 380px) {
   div.card.space_out {
@@ -318,7 +320,6 @@ footer{
     bottom: 0;
     width: 100vw;
     height: 3rem;
-    z-index: 2;
   }
 
   /* End Navigation */
@@ -456,8 +457,8 @@ footer{
     margin-left: 0.7rem;
     filter: brightness(150%);
   }
+  /* End Navigation */
 }
-/* End Navigation */
 
 @media screen and (min-width: 729px) and (max-width: 768px) {
   section::-webkit-scrollbar-thumb {
